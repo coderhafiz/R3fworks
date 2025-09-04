@@ -36,20 +36,20 @@ export default function Scene(props) {
           azimuth={[-Math.PI, Math.PI]}
           // zoom={0.75}
         >
-          <Float
+          {/* <Float
             speed={3} // Animation speed, defaults to 1
             rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
             // floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
             floatingRange={[-0.1, 0]}
-          >
-            <Suspense fallback={null}>
-              <Model />
-              <Environment
-                files="/hdri/christmas_photo_studio_01_4k.exr"
-                background={false}
-              />
-            </Suspense>
-          </Float>
+          > */}
+          <Suspense fallback={null}>
+            <Model />
+            <Environment
+              files="/hdri/christmas_photo_studio_01_4k.exr"
+              background={false}
+            />
+          </Suspense>
+          {/* </Float> */}
         </PresentationControls>
       </Canvas>
     </>
