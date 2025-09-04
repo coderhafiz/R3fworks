@@ -25,21 +25,22 @@ export default function Scene(props) {
           // minPolarAngle={Math.PI / 6} // 30 degrees
           // maxPolarAngle={Math.PI - Math.PI / 6} // 150 degrees
         /> */}
-        <Float
-          speed={3} // Animation speed, defaults to 1
-          rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
-          // floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-          floatingRange={[-0.1, 0]}
+
+        <PresentationControls
+          enabled={true}
+          cursor
+          snap
+          speed={2}
+          // rotation={[0.2, 0.3, 0]}
+          polar={[-Math.PI, Math.PI]}
+          azimuth={[-Math.PI, Math.PI]}
+          // zoom={0.75}
         >
-          <PresentationControls
-            enabled={true}
-            cursor
-            snap
-            speed={2}
-            // rotation={[0.2, 0.3, 0]}
-            polar={[-Math.PI, Math.PI]}
-            azimuth={[-Math.PI, Math.PI]}
-            // zoom={0.75}
+          <Float
+            speed={3} // Animation speed, defaults to 1
+            rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+            // floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+            floatingRange={[-0.1, 0]}
           >
             <Suspense fallback={null}>
               <Model />
@@ -48,8 +49,8 @@ export default function Scene(props) {
                 background={false}
               />
             </Suspense>
-          </PresentationControls>
-        </Float>
+          </Float>
+        </PresentationControls>
       </Canvas>
     </>
   );
