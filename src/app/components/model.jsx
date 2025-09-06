@@ -132,3 +132,5 @@ export default function Model(props) {
 // }
 
 // useGLTF.preload("/scene.gltf");
+
+// Preload with KTX2 support
