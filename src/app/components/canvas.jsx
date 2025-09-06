@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { degToRad } from "three/src/math/MathUtils.js";
 import { PresentationControls, Environment, Float } from "@react-three/drei";
@@ -12,6 +12,8 @@ export default function Scene(props) {
     const { progress } = useProgress();
     return <Html center>{progress} % loaded</Html>;
   }
+
+  const memoizedModel = useMemo(() => <Model />, []);
   return (
     <>
       <Canvas
@@ -35,7 +37,7 @@ export default function Scene(props) {
             floatingRange={[-0.1, 0]}
           >
             <Suspense fallback={<Loader />}>
-              <Model />
+              {memoizedModel}
               <Environment
                 files="/hdri/christmas_photo_studio_01_4k.exr"
                 background={false}
